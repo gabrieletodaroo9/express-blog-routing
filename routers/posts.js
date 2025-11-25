@@ -7,7 +7,12 @@ router.get('/', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  res.send(`View single post with the id: ${req.params.id}`)
+  const post = posts.find(post => post.id == req.params.id)
+  if (post) {
+    res.json(post)
+  } else {
+    res.send('Nessun post trovato con questo id')
+  }
 })
 
 router.post('/', (req, res) => {
