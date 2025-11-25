@@ -3,7 +3,7 @@ const router = express.Router()
 const posts = require('../posts')
 
 router.get('/', (req, res) => {
-  res.send('View all posts')
+  res.json(posts)
 })
 
 router.get('/:id', (req, res) => {
